@@ -7,7 +7,7 @@
     <?php
     if($page == 'News') {
       
-      $meta = ($news['highlights']) ? $news['highlights'] : '';
+      $meta = $meta = !empty($news['highlights']) ? $news['highlights'] : '';
       if(!empty($meta)) {
         ?>
          <meta name="keywords" content="<?php
