@@ -280,7 +280,7 @@ class NewsController extends Controller {
         return $this->response->setJSON(['error' => 'Feedback not found']);
     }
     public function delete($id) {
-        if(!hasPermission('','delete_career')) {
+        if(!hasPermission('','delete_news')) {
             return $this->response->setJSON(['success' => false , 'message' => lang('Custom.permissionDenied')]);
         }
         if(!$this->request->isAJAX()) {

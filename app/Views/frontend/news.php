@@ -44,7 +44,7 @@
                       ?>
                         <div class="blog-wrapper col-xs-12 col-sm-6 col-md-6 col-2">
                         <div class="wrapper">
-                            <div class="entry-thumbnail">
+                            <div class="entry-thumbnail container-fluid">
                                 <a href="<?= base_url('news-details/'.$blog->slug) ?>" class="container-wraooer"><img src="<?= validImg($blog->image) ?>" width="100%" alt="<?= $blog->title??'' ?>"></a>
                                 <div class="entry-time">
                                     <span class="day"><?= date('d',strtotime($blog->created_at)) ?></span>
