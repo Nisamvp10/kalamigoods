@@ -1,150 +1,133 @@
-<?= view('frontend/inc/header') ;?> 
-<body>
-<?= view('frontend/inc/nav');?>
+<?=view('frontend/inc/header');?>
 
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <main id="primary" class="site-main">
+        <!-- masthead end -->
 
-        <div class="space-for-header"></div>
-        <!-- start: Breadcrumb Section -->
-        <section class="tj-page-header" data-bg-image="<?=base_url('public/assets/template/assets/images/pressandmedia-breadcrumb-img.jpg');?>">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="tj-page-header-content text-center">
-                  <h1 class="tj-page-title">Company News & Updates</h1>
-                  <div class="tj-page-link">
-                    <span><i class="tji-home"></i></span>
-                    <span>
-                      <a href="<?=base_url();?>">Home</a>
-                    </span>
-                    <span><i class="tji-arrow-right"></i></span>
-                    <span>
-                      <span>Press & Media</span>
-                    </span>
-                  </div>
+        <!--Page Header-->
+        <div class="page-header title-area">
+            <div class="header-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h1 class="page-title"><?= $news['title'] ?? '' ?></h1>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="page-header-overlay" data-bg-image="<?=base_url('public/assets/template/assets/images/shape/pheader-overlay.jpg');?>"></div>
-        </section>
-        <!-- end: Breadcrumb Section -->
+            <div class="breadcrumb-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-xs-12 site-breadcrumb">
+                            <nav class="breadcrumb">
+                                <a class="home" href="#"><span>Home</span></a>
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <span><?= $news['title'] ?? '' ?></span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Page Header end-->
 
-        <!-- start: Blog Section -->
-        <section class="tj-blog-section section-gap slidebar-stickiy-container">
-          <div class="container">
-            <div class="row row-gap-5">
-              <div class="col-lg-12">
-                <div class="post-details-wrapper">
-                  <!-- <div class="blog-images wow fadeInUp" data-wow-delay=".1s">
-                    <img src="<?=($news['image'] ? $news['image']: base_url('uploads/default.png'));?>" alt="Images">
-                  </div> -->
-                  <h2 class="title title-anim"><?=($news['title'] ? $news['title'] : '') ;?> </h2>
-                  <div class="blog-text">
-                    <p class="wow fadeInUp" data-wow-delay=".3s"><?=($news['shortnote'] ? $news['shortnote'] : '') ;?></p>
-                    <?php
-                    $highlight = $news['highlights'];
-                    if($highlight) {
-                        ?>
-                         <h3 class="wow fadeInUp" data-wow-delay=".3s">Key Highlights</h3>
-                          <ul class="wow fadeInUp" data-wow-delay=".3s">
-                        <?php
-                        foreach($highlight as $pointKey) {
-                            ?>
-                             <li><span><i class="tji-check"></i></span><?=($pointKey['points'] ? $pointKey['points'] :'');?></li>
-                            <?php
-                        }
-                        ?>
-                        </ul>
-                        <?php
-                    }
-                    ?>
-                   
-                    <h3 class="wow fadeInUp" data-wow-delay=".3s">Event Galley</h3>
-                   
-                    <P class="wow fadeInUp" data-wow-delay=".3s"><?=($news['description'] ? $news['description'] : '') ;?></P>
-                    <div class="images-wrap">
-                      <div class="row">
-                        <?php
-                          $gallery = $news['gallery'];
-                          if($gallery) { 
-                            foreach($gallery as $rowImg) {
-                            ?>
-                              <div class="col-sm-4">
-                                <div class="image-box wow fadeInUp" data-wow-delay=".3s">
-                                  <a class="gallery" data-gall="gallery" href="<?=($rowImg['img'] ? $rowImg['img'] : base_url('uploads/default.png') );?>">
-                                    <img src="<?=($rowImg['img'] ? $rowImg['img'] : base_url('uploads/default.png') );?>" alt="Image"></a>
+        <!--blog page sec-->
+        <section class="blogpage single-post blog-classic  secpadd">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div class="hentry">
+                            <header class="entry-header">
+                                <div class="entry-thumbnail">
+                                    <img src="<?= validImg($news['image']) ?>" width="100%" alt="">
+                                    <div class="entry-time">
+                                        <span class="day"><?= date('d',strtotime($news['created_at'])) ?></span>
+                                        <span class="month"><?= date('M',strtotime($news['created_at'])) ?></span>
+                                    </div>
                                 </div>
-                              </div>
-                          <?php } 
-                          }?>
-                      </div>
+
+                                <div class="entry-meta clearfix">
+                                    <span class="meta author vcard"><?= $news['type'] ?? '' ?></span>
+                                </div>
+                                <!-- .entry-meta -->
+
+                                <h2 class="entry-title"><?= $news['title'] ?? '' ?></h2>
+                            </header>
+                            <!-- .entry-header -->
+
+                            <div class="entry-content">
+                               <?= $news['description'] ?? '' ?>
+                            </div>
+                            <!-- .entry-content -->
+
+                            
+                            <!-- .entry-footer -->
+                        </div>
+
+                      
                     </div>
-                  </div>
-                  <div class="tj-post__navigation mb-0 wow fadeInUp d-none" data-wow-delay=".3s">
-                    <!-- previous post -->
-                    <div class="tj-nav__post previous">
-                      <div class="tj-nav-post__nav prev_post">
-                        <a href=""><span><i class="tji-arrow-left"></i></span>Previous</a>
-                      </div>
+                    <div class="col-md-4">
+                        <div class="tracksidebar">
+                            
+
+                                                     
+
+                            <div class="widget popular-posts-widget">
+                                <h4 class="widget-title">Popular Post</h4>
+                                 <?php
+                                if(!empty($allNews)) {
+                                  foreach($allNews as $rowNews) {
+                                    ?>
+                                     <div class="popular-post post clearfix ">
+                                          <a class="widget-thumb" href="<?= base_url('news-details/'.$rowNews->slug) ?>"><img src="<?= validImg($rowNews->image) ?>" alt="" height="75" width="75"></a>
+                                          <div class="mini-widget-title">
+                                              <h4><a href="<?= base_url('news-details/'.$rowNews->slug) ?>"><?= $rowNews->title ?? '' ?></a></h4>
+                                              <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                              <span class="entry-date"><?= date('d-M-Y',strtotime($rowNews->created_at)) ?? '' ?></span>
+                                          </div>
+                                      </div>
+                                    <?php
+                                  }
+                                }?>
+                               
+                               
+                                
+                            </div>
+                            <?php
+                            
+                            $gallery = $news['gallery'];
+                            
+                            if(!empty($gallery)) {
+                              ?>
+                           
+                            <div class="widget latest-project-widget">
+                                <h4 class="widget-title">Photo gallery</h4>
+                                <div class="latest-project-list clearfix">
+                                  <?php
+                                  foreach($gallery as $img) { 
+                                    
+                                     ?>
+                                    <div class="latest-project clearfix">
+                                        <div class="fp-widget-thumb">
+                                            <a class="widget-thumb" href="#">
+                                                <i class="fa fa-link" aria-hidden="true"></i>
+                                                <img src="<?= validImg($img['img']) ?>" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+                                
+                                </div>
+                            </div>
+                            <?php } ?>
+
+                        </div>
+
+                        </div>
                     </div>
-                    <div class="tj-nav-post__grid">
-                      <a href="portfolio.html"><i class="tji-window"></i></a>
-                    </div>
-                    <!-- next post -->
-                    <div class="tj-nav__post next">
-                      <div class="tj-nav-post__nav next_post">
-                        <a href="">Next<span><i class="tji-arrow-right"></i></span></a>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
-              </div>
-
             </div>
-          </div>
         </section>
-        <!-- end: Blog Section -->
+        <!--blog page end-->
 
-    
-
-
-
-        
-        
-    </main>
-  <?= view('frontend/inc/footer') ?>
-    </div>
-  </div>
-  <?= view('frontend/inc/footerLink') ?>
-  <script>
-  const body = document.querySelector('body');
-  const toggle = document.querySelector('#toggle');
-  toggle.addEventListener('change', () => {
-    body.classList.toggle('dark');
-});
-</script>
-
-<script>
-window.onscroll = function() {myFunction()};
-
-var header = document.getElementById("myHeader");
-var sticky = header.offsetTop;
-
-function myFunction() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-</script>
-
-
-
-
-</body>
-
-</html>
+    <?=view('frontend/inc/footer');?>

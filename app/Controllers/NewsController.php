@@ -25,6 +25,7 @@ class NewsController extends BaseController {
                 'description' => '',
                 'image'       => '',
                 'type'        => '',
+                'created_at'  => '',
                 'highlights'  => [],
                 'gallery'     => [],
             ];
@@ -36,6 +37,7 @@ class NewsController extends BaseController {
                         $result['description'] = $row->description;
                         $result['image']       =  $row->image;
                         $result['type']        = $row->type;
+                        $result['created_at']  = $row->created_at;
                     }
                     if (!empty($row->points)) {
                         $existingpointIds = array_column($result['highlights'],'pointId');
@@ -60,9 +62,10 @@ class NewsController extends BaseController {
             }else{
                 return redirect()->to('news');
             }
-            $page ="Career Details";
+            $page ="News";
+            $allNews = $this->newsModel->where(['status' => 1,'slug !=' => $slug])->orderBy('id','DESC')->get()->getResult();
             $news = $result ?? [];
-            return view('frontend/news-details',compact('page','news'));
+            return view('frontend/news-details',compact('page','news','allNews'));
 
         }
     }

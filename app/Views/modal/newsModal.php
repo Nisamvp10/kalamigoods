@@ -82,7 +82,7 @@
                         <div id="productWrapper">
                               <div class="border border-gray-200 rounded-lg p-4 new-row mt-2">
                                 <div>
-                                    <label class="block mb-2 text-sm font-semibold">Highlight Points</label>
+                                    <label class="block mb-2 text-sm font-semibold">Meta Descriptions for Seo</label>
                                     <div id="points">
                                         <input type="text" name="points[]" class="w-full border p-2 rounded mb-2" placeholder="Highlight point 1">
                                         <div class="invalid-feedback" id="points_error"></div>

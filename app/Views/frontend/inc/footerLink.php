@@ -39,6 +39,7 @@
     <!-- script JS  -->
     <script src="<?=base_url('public/assets/template/js/scripts.min.js');?>"></script>
     <script src="<?=base_url('public/assets/template/js/script.js');?>"></script>
+    
 </body>
 
 </html>

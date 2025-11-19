@@ -78,7 +78,7 @@ function openModal(id=false) {
                             <div class="border border-gray-200 rounded-lg py-2 px-2 new-row mt-2">
                                 <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
                                     <div class="md:col-span-3">
-                                        <label>Highlights Points *</label>
+                                        <label>Meta Descriptions for Seo *</label>
                                         <input type="hidden" name="pointId[]" value="${carpoin.pointId}" />
                                         <textarea  name="points[]" rows="3" class="w-full border p-2 rounded mb-2 mt-2" placeholder="Another highlight">${safeValue}</textarea>
                                         <div class="invalid-feedback" id="points_error"></div>
@@ -109,7 +109,7 @@ function openModal(id=false) {
         $("#productWrapper").empty();
          $("#productWrapper").append(` <div class="border border-gray-200 rounded-lg p-4 new-row mt-2">
             <div>
-                <label class="block mb-2 text-sm font-semibold">Highlight Points</label>
+                <label class="block mb-2 text-sm font-semibold">Meta Descriptions for Seo</label>
                 <div id="points">
                     <input type="text" name="points[]" class="w-full border p-2 rounded mb-2" placeholder="Highlight point 1">
                     <div class="invalid-feedback" id="points_error"></div>

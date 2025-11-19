@@ -4,8 +4,25 @@
 <head>
     <meta charset="utf-8">
     <title>KALAMI GOODS</title> <!-- Stylesheets -->
+    <?php
+    if($page == 'News') {
+      
+      $meta = ($news['highlights']) ? $news['highlights'] : '';
+      if(!empty($meta)) {
+        ?>
+         <meta name="keywords" content="<?php
+         foreach($meta as $key) {
+          echo $key['points'].' ,';
+         }
+         ?>">
+        <?php
+      }
+    }else {
+      ?>
+    
       <meta name="keywords" content="<?= getappdata('meta_keywords') ?>">
         <meta name="description" content="<?= getappdata('meta_description') ?>">
+      <?php } ?>
     
     <!-- bootstrap v3.3.6 css -->
     <link href="<?=base_url('public/assets/template/css/bootstrap.css');?>" rel="stylesheet">

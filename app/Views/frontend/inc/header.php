@@ -28,6 +28,7 @@
                                     <li><a href="<?= base_url('about-us') ?>"  <?= ($page == 'About-us' ? 'style="color: red;"' :'') ?>>About Us</a>
                                     </li>
                                     <li><a href="<?= base_url('services') ?>"  <?= ($page == 'Services' ? 'style="color: red;"' :'') ?> >Services</a>
+                                    <li><a href="<?= base_url('news') ?>"  <?= ($page == 'News' ? 'style="color: red;"' :'') ?> >Blog</a>
                                     </li>
                                     
                                     <li><a href="<?= base_url('contact') ?>"  <?= ($page == 'Contact' ? 'style="color: red;"' :'') ?> >Contact</a></li>
